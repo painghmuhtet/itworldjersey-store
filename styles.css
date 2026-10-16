@@ -26,3 +26,6 @@
 .store-copy small{font-size:9px;letter-spacing:.8px;color:#d2d5db;line-height:1.2}
 .store-copy strong{font-size:18px;line-height:1.1;letter-spacing:-.3px;color:#fff}
 @media(max-width:600px){.app-links{width:100%}.store-badge{max-width:320px;min-height:60px}.store-copy strong{font-size:19px}}
+
+.store-badge-direct{border-color:#e51d3d;background:linear-gradient(145deg,#271017,#070608)}
+.direct-icon{font-size:32px;font-weight:800;color:#ff2548}
