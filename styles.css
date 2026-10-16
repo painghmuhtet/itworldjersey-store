@@ -100,3 +100,24 @@
  .nav-link{display:flex;width:100%;justify-content:flex-start;padding:13px 14px;border-radius:11px;font-size:15px}
  .nav-ico{min-width:24px;font-size:18px}
 }
+
+
+/* Mobile-only compact menu sizing; desktop navigation remains unchanged */
+@media(max-width:760px){
+ .mobile-quick-links{gap:5px}
+ .quick-icon{min-width:54px;height:36px;padding:0 7px;border-radius:8px;gap:4px}
+ .quick-icon b{font-size:10px}
+ .quick-icon span{font-size:22px}
+ .quick-live span{font-size:15px}
+ .menu-toggle{width:40px;height:40px;padding:0;font-size:20px;border-radius:9px}
+ .nav{gap:6px;padding:8px}
+ .nav-link{min-height:0;padding:10px 12px;border-radius:9px;font-size:14px;line-height:1.25}
+ .nav-ico{min-width:22px;font-size:16px}
+ .nav-link i{font-size:8px}
+}
+@media(max-width:380px){
+ .mobile-quick-links{gap:4px}
+ .quick-icon{min-width:48px;height:34px;padding:0 5px}
+ .quick-icon b{font-size:9px}
+ .menu-toggle{width:36px;height:36px}
+}
