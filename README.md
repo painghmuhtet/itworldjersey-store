@@ -7,6 +7,8 @@ Static-first website starter for a Malaysia-focused football jersey store.
 - `styles.css` — responsive styling, dark/red menu with hover glow
 - `app.js` — demo product cards, search, banner controls, WhatsApp order messages
 - `custom-design.html` / `custom.js` — custom design request form UI
+- `worker/index.js` — staged private upload API source (not deployed)
+- `worker/wrangler.toml` — configuration template (private bucket placeholder)
 - `worker/README.md` — secure upload and email integration plan
 
 ## Important prototype notes
