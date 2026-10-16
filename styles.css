@@ -160,3 +160,10 @@
 .footer-products-company .company-subhead{margin-top:14px;padding-top:12px;border-top:1px solid #ffffff24}
 @media(max-width:1100px){.footer-main{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:760px){.footer-main{grid-template-columns:repeat(2,minmax(0,1fr))}.footer-products-company{grid-column:auto}.foot-note,.foot-contact{grid-column:span 2}}
+
+
+.footer-design-cta,.footer-shop-cta{display:inline-block;width:fit-content;margin-top:8px;padding:9px 12px;border:1px solid #ff2446;border-radius:7px;color:#fff!important;font-size:12px;font-weight:800;text-decoration:none!important}
+.footer-design-cta{background:#ff1738;box-shadow:0 4px 14px #ff173833}
+.footer-shop-cta{border-color:#ffffff45}
+.footer-design-cta:hover,.footer-shop-cta:hover{transform:translateY(-1px);filter:brightness(1.12)}
+.foot-note p{line-height:1.65}
