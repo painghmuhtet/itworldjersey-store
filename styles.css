@@ -83,3 +83,20 @@
 .quick-live{background:linear-gradient(135deg,#ff3654,#a90026);border-color:#ff7185;box-shadow:0 0 12px #ff17384a}
 .quick-live span{font-size:16px}
 @media(max-width:380px){.mobile-quick-links{gap:4px}.quick-icon{min-width:0;padding:0 6px}.quick-icon b{font-size:10px}}
+
+
+/* FIX: restore normal menu styling; effects only on Home and Live Sale */
+.nav{gap:7px;padding:0}
+.nav-link{display:inline-flex;width:auto;align-items:center;justify-content:center;gap:6px;padding:11px 15px;border:1px solid #272e3b;border-radius:9px;background:#1b2029;color:#fff;font-weight:800;letter-spacing:normal;box-shadow:none;white-space:normal;transform:none}
+.nav-link:hover,.nav-link:focus-visible{background:#303744;box-shadow:0 0 0 1px #fff,0 0 18px #ff173899;transform:translateY(-2px)}
+.nav-link.active{background:linear-gradient(135deg,#ff1738,#a70021);box-shadow:0 0 16px #ff1738a0}
+.nav-videos,.nav-shop,.nav-custom{background:#1b2029;border-color:#272e3b;box-shadow:none}
+.nav-videos:hover,.nav-shop:hover,.nav-custom:hover{background:#303744}
+.nav-home{background:linear-gradient(135deg,#304f9b,#182746);border-color:#5479d1;box-shadow:0 0 12px #5479d155}
+.nav-live{background:linear-gradient(135deg,#ff3654,#a90026);border-color:#ff7185;box-shadow:0 0 0 1px #ff17383b,0 0 14px #ff17384a}
+.nav-link .nav-ico{min-width:18px;font-size:16px}
+@media(max-width:760px){
+ .nav{gap:8px;padding:10px}
+ .nav-link{display:flex;width:100%;justify-content:flex-start;padding:13px 14px;border-radius:11px;font-size:15px}
+ .nav-ico{min-width:24px;font-size:18px}
+}
