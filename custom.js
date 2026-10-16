@@ -1,0 +1,7 @@
+(function(){
+"use strict";
+const form=document.getElementById("customForm"),fileInput=document.getElementById("designFile"),fileLabel=document.getElementById("fileLabel"),status=document.getElementById("formStatus");
+const WA="601126238907";
+fileInput.addEventListener("change",()=>{const f=fileInput.files[0];if(!f){fileLabel.textContent="Choose your design file";return;}if(f.size>8*1024*1024){fileInput.value="";fileLabel.textContent="File is too large — choose a file under 8 MB";return;}fileLabel.textContent=f.name;});
+form.addEventListener("submit",e=>{e.preventDefault();const file=fileInput.files[0],phone=document.getElementById("customerPhone").value.trim(),request=document.getElementById("customerRequest").value.trim();if(!file||!phone||!request){status.textContent="Please add a design file, phone number and request.";return;}status.textContent="Opening WhatsApp with your request details. The selected file is not uploaded by this demo yet; Worker endpoint must be configured first.";const message="IT WORLD JERSEY — CUSTOM DESIGN REQUEST\nUpload by Customer: "+phone+"\nRequest: "+request+"\nSelected design file: "+file.name+"\nPlease advise how I can securely send the design file.";window.open("https://wa.me/"+WA+"?text="+encodeURIComponent(message),"_blank","noopener");});
+})();
