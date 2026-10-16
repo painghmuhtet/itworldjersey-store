@@ -12,3 +12,17 @@
 .load-more{display:block;margin:16px auto 4px;padding:12px 22px;border:0;border-radius:9px;background:#ff1738;color:#fff;font-weight:900;box-shadow:0 5px 15px #ff17383b}
 .load-more:hover{filter:brightness(1.08);transform:translateY(-1px)}
 .load-more[hidden]{display:none}
+
+
+/* App store badges — polished footer design */
+.app-links{align-content:start}
+.app-links-note{margin:-5px 0 2px;color:#aeb7c5;font-size:12px}
+.store-badge{display:flex;align-items:center;gap:12px;width:100%;min-height:58px;box-sizing:border-box;padding:8px 12px;border:1px solid #737984;border-radius:9px;background:linear-gradient(145deg,#17191e,#050608);color:#fff;box-shadow:0 3px 9px #0003}
+.store-icon{display:grid;place-items:center;width:30px;flex:0 0 30px;font-size:29px;line-height:1}
+.google-play-icon{color:#47d6c2;text-shadow:2px 0 #f6d64a,-2px 0 #5aa8ff}
+.apple-icon{font-size:0}
+.apple-icon:before{content:"";display:block;width:22px;height:25px;background:#fff;border-radius:48% 48% 45% 45%;clip-path:polygon(48% 19%,62% 3%,78% 0,74% 17%,59% 26%,72% 31%,95% 21%,100% 48%,88% 75%,74% 98%,56% 94%,43% 99%,25% 94%,10% 72%,0 46%,7% 27%,28% 20%)}
+.store-copy{display:flex;flex-direction:column;gap:2px;min-width:0}
+.store-copy small{font-size:9px;letter-spacing:.8px;color:#d2d5db;line-height:1.2}
+.store-copy strong{font-size:18px;line-height:1.1;letter-spacing:-.3px;color:#fff}
+@media(max-width:600px){.app-links{width:100%}.store-badge{max-width:320px;min-height:60px}.store-copy strong{font-size:19px}}
