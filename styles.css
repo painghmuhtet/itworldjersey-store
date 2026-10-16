@@ -121,3 +121,33 @@
  .quick-icon b{font-size:9px}
  .menu-toggle{width:36px;height:36px}
 }
+
+
+/* Shop catalog page: square images and numbered pagination */
+.shop-head{flex-wrap:nowrap}
+.shop-shortcuts{display:flex;gap:8px;margin-left:auto}
+.shop-title-row{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 0 12px}
+.shop-title-row h1{font-size:clamp(28px,4vw,42px);margin:2px 0}
+.shop-eyebrow{color:#ff1738;font-size:11px;font-weight:900;letter-spacing:2px;margin:0}
+.shop-search{display:flex;gap:0;margin:10px 0 18px;border:1px solid #dce1e8;border-radius:10px;overflow:hidden}
+.shop-search input{min-width:0;flex:1;padding:13px 15px;border:0;outline:0}
+.shop-search button{border:0;background:#ff1738;color:#fff;font-weight:900;padding:0 22px}
+.shop-page .product-grid{grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+.shop-page .product-art{height:auto;aspect-ratio:1/1}
+.shop-page .product-photo{width:100%;height:100%;object-fit:contain;padding:5px}
+.shop-page .product-info{padding:11px}
+.shop-page .product-name{font-size:14px}
+.shop-page .price{font-size:15px}
+.shop-page .order-button{padding:10px 6px;font-size:12px}
+.pagination{display:flex;justify-content:center;align-items:center;gap:7px;flex-wrap:wrap;padding:24px 0 35px}
+.pagination button{min-width:40px;padding:10px 13px;border:1px solid #dce1e8;background:#fff;color:#17202c;border-radius:8px;font-weight:800}
+.pagination button.current{background:#ff1738;color:#fff;border-color:#ff1738;box-shadow:0 4px 12px #ff173844}
+.pagination button:disabled{opacity:.4;cursor:not-allowed}
+.pagination span{padding:0 3px;color:#7b8492}
+@media(min-width:761px){.nav-live{padding:8px 10px;font-size:12px}.nav-live i{font-size:8px;padding:2px 4px}}
+@media(max-width:1100px){.shop-page .product-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:760px){.shop-head{flex-wrap:wrap}.shop-shortcuts{display:none}.shop-title-row{align-items:flex-start;flex-direction:column}.shop-title-row>.button{align-self:flex-start}.shop-page .product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.shop-page .product-name{font-size:12px}.shop-page .product-info{padding:8px}.pagination{gap:5px}.pagination button{min-width:34px;padding:9px 10px;font-size:12px}}
+/* Group Products and Company links in the same footer column on desktop */
+.footer-products-company{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.footer-products-company .foot-col{min-width:0}
+@media(max-width:760px){.footer-products-company{grid-template-columns:1fr 1fr;grid-column:span 2;gap:14px}}
