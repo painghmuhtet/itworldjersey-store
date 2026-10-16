@@ -72,3 +72,14 @@
  .nav-live{justify-content:flex-start}
 }
 @media(prefers-reduced-motion:reduce){.nav-link,.nav-live .live-ico{animation:none;transition:none}}
+
+
+/* Keep Home and Live Sale outside the collapsed mobile menu */
+.mobile-quick-links{gap:7px}
+.quick-icon{width:auto;min-width:62px;height:42px;padding:0 9px;display:flex;flex-direction:row;gap:5px;border-radius:10px;font-size:18px}
+.quick-icon b{font-size:11px;font-weight:900;white-space:nowrap}
+.quick-icon i{display:none}
+.quick-home{background:linear-gradient(135deg,#304f9b,#182746);border-color:#5479d1}
+.quick-live{background:linear-gradient(135deg,#ff3654,#a90026);border-color:#ff7185;box-shadow:0 0 12px #ff17384a}
+.quick-live span{font-size:16px}
+@media(max-width:380px){.mobile-quick-links{gap:4px}.quick-icon{min-width:0;padding:0 6px}.quick-icon b{font-size:10px}}
