@@ -8,3 +8,7 @@
 .hero-art.has-photo .shirt-shapes,.hero-art.has-photo .hero-side{display:none}
 .hero-art.has-photo .stadium-lights{background:linear-gradient(90deg,#080b1088 0%,#080b1020 45%,#080b1044 100%),linear-gradient(0deg,#080b1066,transparent 55%)}
 @media(max-width:760px){.product-photo{padding:5px}.photo-fallback{font-size:54px}.hero-art.has-photo{left:34%;background-position:center}}
+
+.load-more{display:block;margin:16px auto 4px;padding:12px 22px;border:0;border-radius:9px;background:#ff1738;color:#fff;font-weight:900;box-shadow:0 5px 15px #ff17383b}
+.load-more:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.load-more[hidden]{display:none}
