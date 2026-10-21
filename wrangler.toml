@@ -2,6 +2,10 @@ name = "chitoo-ai"
 main = "worker/index.js"
 compatibility_date = "2026-10-21"
 
+routes = [
+  { pattern = "ai.itworldjersey.store", custom_domain = true }
+]
+
 [ai]
 binding = "AI"
 
@@ -9,7 +13,3 @@ binding = "AI"
 directory = "./ai"
 binding = "ASSETS"
 run_worker_first = ["/api/*"]
-
-routes = [
-  { pattern = "ai.itworldjersey.store", custom_domain = true }
-]
