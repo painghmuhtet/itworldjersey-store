@@ -1,0 +1,15 @@
+name = "chitoo-ai"
+main = "worker/index.js"
+compatibility_date = "2026-10-21"
+
+[ai]
+binding = "AI"
+
+[assets]
+directory = "./ai"
+binding = "ASSETS"
+run_worker_first = ["/api/*"]
+
+routes = [
+  { pattern = "ai.itworldjersey.store", custom_domain = true }
+]
