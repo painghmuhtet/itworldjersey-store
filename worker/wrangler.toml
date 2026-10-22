@@ -1,6 +1,18 @@
-name = "itworldjersey-store-api"
+name = "chitoo-ai"
 main = "index.js"
-compatibility_date = "2026-10-17"
+compatibility_date = "2026-10-21"
+
+routes = [
+  { pattern = "ai.itworldjersey.store", custom_domain = true }
+]
+
+[ai]
+binding = "AI"
+
+[assets]
+directory = "../ai"
+binding = "ASSETS"
+run_worker_first = ["/api/*"]
 
 # Private bucket for customer custom-design uploads.
 [[r2_buckets]]
