@@ -73,7 +73,17 @@
   if(/black|white|red|blue|green|yellow|pink|colour|color|style|team|club|အသင်း|အရောင်/.test(lower)){
    say('Style hunt activated, Boss! 🕵️‍♂️ The catalog doesn’t yet have verified colour/team tags, so I can’t reliably identify every jersey by colour or club name. Browse the pictures, tell me a Design No. you like, or ask the shop to help.','bot');const d=log.lastElementChild;d.appendChild(document.createElement('br'));d.appendChild(orderLink(q));return;
   }
-  say('I got you, Boss 😎 I’m the shop’s starter assistant, not a full AI brain just yet. I can help search a Design No. or pass your exact question to the team on WhatsApp. No fake answers, no imaginary discounts 😂','bot');const d=log.lastElementChild;d.appendChild(document.createElement('br'));d.appendChild(orderLink(q));
+   const pending=say('ခဏလေးနော် Boss 😎 စဉ်းစားနေပါတယ်…','bot');
+   try{
+    const history=Array.from(log.querySelectorAll('.jw-msg')).slice(-12).filter(el=>el!==pending).map(el=>({role:el.classList.contains('jw-user')?'user':'assistant',content:el.textContent.slice(0,1200)}));
+    const res=await fetch('https://ai.itworldjersey.store/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:history})});
+    const data=await res.json();
+    if(!res.ok||!data.reply)throw new Error(data.error||'AI request failed');
+    pending.textContent=data.reply;
+   }catch(err){
+    pending.textContent='AI ကို ခဏဆက်သွယ်မရသေးပါဘူး။ မေးခွန်းကို WhatsApp ကနေ ဆိုင်ကို တိုက်ရိုက်မေးနိုင်ပါတယ်။';
+    pending.appendChild(document.createElement('br'));pending.appendChild(orderLink(q));
+   }
  }
  launch.addEventListener('click',()=>{box.classList.add('open');input.focus()});close.addEventListener('click',()=>box.classList.remove('open'));
  form.addEventListener('submit',e=>{e.preventDefault();respond(input.value);input.value='';});
