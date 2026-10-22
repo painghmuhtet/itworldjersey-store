@@ -94,8 +94,9 @@ export default {
         const reply = result?.response || result?.choices?.[0]?.message?.content;
         if (!reply) return response({ error: "The AI returned an empty response. Please try again." }, 502, origin);
         return response({ reply }, 200, origin);
-      } catch {
-        return response({ error: "The AI service is temporarily unavailable. Please try again or contact the shop on WhatsApp." }, 502, origin);
+      } catch (error) {
+        console.error("ChitOo.Ai Workers AI request failed:", error?.message || String(error));
+        return response({ error: "The AI service is temporarily unavailable. Please try again or contact the shop on WhatsApp.", code: "AI_RUN_FAILED" }, 502, origin);
       }
     }
 
