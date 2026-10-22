@@ -2,9 +2,9 @@ name = "itworldjersey-store-api"
 main = "index.js"
 compatibility_date = "2026-10-17"
 
-# Do not deploy until the private R2 bucket binding and production secrets are reviewed.
+# Private bucket for customer custom-design uploads.
 [[r2_buckets]]
 binding = "CUSTOM_DESIGNS"
-bucket_name = "REPLACE_WITH_A_NEW_PRIVATE_CUSTOM-DESIGNS_BUCKET"
+bucket_name = "itworldjersey-custom-designs"
 
 # Do not bind the public product-image bucket here.
