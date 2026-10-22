@@ -30,10 +30,12 @@ jobs:
         run: |
           if [ -z "$CLOUDFLARE_API_TOKEN" ]; then
             echo "::error::Missing repository secret: CLOUDFLARE_API_TOKEN"
+            echo "::notice::Open Settings > Secrets and variables > Actions and add a secret with this exact name."
             exit 1
           fi
           if [ -z "$CLOUDFLARE_ACCOUNT_ID" ]; then
             echo "::error::Missing repository secret: CLOUDFLARE_ACCOUNT_ID"
+            echo "::notice::Add the Cloudflare Account ID as a separate repository secret."
             exit 1
           fi
 
