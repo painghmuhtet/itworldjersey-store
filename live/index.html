@@ -3,158 +3,49 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#080b10">
-  <meta name="description" content="Watch IT WORLD JERSEY live jersey showcases and live sales.">
-  <title>IT WORLD JERSEY LIVE | Live Sale</title>
+  <meta name="theme-color" content="#090b10">
+  <meta name="description" content="Watch IT WORLD JERSEY live on YouTube.">
+  <title>IT WORLD JERSEY | Live</title>
   <style>
-    :root{--bg:#080b10;--panel:#111722;--panel2:#151d2a;--ink:#f7f8fb;--muted:#a8b0bf;--red:#ff1738;--red2:#c90e2b;--line:#283142;--green:#0b9b57;--max:1240px}
     *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;background:radial-gradient(ellipse at 10% 0%,#1b1320 0,transparent 35%),var(--bg);color:var(--ink);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
-    a{color:inherit;text-decoration:none}
-    button{font:inherit;cursor:pointer}
-    .wrap{width:min(var(--max),calc(100% - 32px));margin:auto}
-    .topline{background:#050609;border-bottom:1px solid #20242d;color:#d8dce5;font-size:12px}
-    .topline .wrap{display:flex;align-items:center;gap:18px;min-height:32px}
-    .topline .right{margin-left:auto}
-    .head{position:sticky;top:0;z-index:20;background:rgba(8,11,16,.94);backdrop-filter:blur(14px);border-bottom:1px solid #252c38}
-    .headinner{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:76px}
-    .brand{display:flex;align-items:center;gap:10px;font-size:20px;line-height:1;font-weight:950;letter-spacing:-.5px}
-    .brandmark{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,#ff3150,#a80023);box-shadow:0 8px 24px #ff17382b;font-size:21px}
-    .brand b{color:var(--red)}
-    .brand small{display:block;margin-top:6px;color:#aeb7c7;font-size:8px;letter-spacing:1.6px;font-weight:700}
-    .nav{display:flex;align-items:center;gap:8px}
-    .nav a{padding:10px 13px;border-radius:9px;color:#e7eaf0;font-weight:750;font-size:13px}
-    .nav a:hover,.nav a.active{background:#202633}
-    .nav .live-link{background:linear-gradient(135deg,var(--red),var(--red2));color:white}
-    .menu{display:none;background:#171d29;border:1px solid var(--line);color:white;border-radius:9px;padding:9px 12px}
-    .hero{padding:32px 0 22px}
-    .eyebrow{display:inline-flex;align-items:center;gap:8px;color:#ff657b;font-size:12px;font-weight:900;letter-spacing:1.6px;text-transform:uppercase}
-    .dot{width:8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 0 5px #ff17381d;display:inline-block}
-    h1{font-size:clamp(30px,5vw,54px);line-height:1.02;letter-spacing:-1.8px;margin:12px 0}
-    h1 span{color:var(--red)}
-    .intro{max-width:700px;color:var(--muted);margin:0 0 22px}
-    .layout{display:grid;grid-template-columns:minmax(0,1.8fr) minmax(280px,.85fr);gap:18px;align-items:stretch}
-    .card{background:linear-gradient(155deg,#141b27,#0e131c);border:1px solid var(--line);border-radius:17px;overflow:hidden;box-shadow:0 18px 55px #0003}
-    .cardhead{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;border-bottom:1px solid var(--line)}
-    .cardtitle{font-weight:850}
-    .livebadge{display:inline-flex;align-items:center;gap:7px;border:1px solid #ff173852;background:#ff173817;color:#ff7d90;border-radius:999px;padding:5px 9px;font-size:11px;font-weight:900;letter-spacing:.5px}
-    .player{position:relative;aspect-ratio:16/9;background:radial-gradient(ellipse at center,#222c3d,#090c12 70%);display:grid;place-items:center}
-    .player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-    .offline{padding:24px;text-align:center;max-width:440px}
-    .playicon{margin:0 auto 14px;width:60px;height:60px;border-radius:50%;display:grid;place-items:center;background:#ff17381c;border:1px solid #ff173866;color:#ff6078;font-size:25px}
-    .offline strong{display:block;font-size:20px}
-    .offline p{margin:7px 0 0;color:var(--muted);font-size:13px}
-    .playerfoot{padding:12px 16px;display:flex;justify-content:space-between;align-items:center;gap:10px;color:var(--muted);font-size:12px;border-top:1px solid var(--line)}
-    .chatframe{height:100%;min-height:440px;background:#0c1119}
-    .chatframe iframe{width:100%;height:100%;min-height:440px;border:0;background:#0c1119}
-    .chat-mobile{display:none;padding:24px;text-align:center}
-    .chat-mobile p{color:var(--muted);font-size:13px}
-    .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
-    .btn{display:inline-flex;justify-content:center;align-items:center;gap:8px;padding:12px 17px;border-radius:10px;background:linear-gradient(135deg,var(--red),var(--red2));color:white;font-weight:850;border:1px solid transparent;box-shadow:0 8px 25px #ff17382a}
-    .btn:hover{filter:brightness(1.08);transform:translateY(-1px)}
-    .btn.secondary{background:#171e2b;border-color:#30394a;box-shadow:none}
-    .info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:26px 0 34px}
-    .info{padding:17px;border:1px solid var(--line);border-radius:14px;background:#0f151f}
-    .info .icon{font-size:22px}
-    .info strong{display:block;margin:7px 0 3px}
-    .info p{margin:0;color:var(--muted);font-size:13px}
-    .section-title{font-size:20px;margin:0 0 12px}
-    .orderbar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px;border:1px solid #3a2630;border-radius:15px;background:linear-gradient(100deg,#24101a,#111722 75%)}
-    .orderbar p{margin:5px 0 0;color:var(--muted);font-size:13px}
-    footer{margin-top:36px;border-top:1px solid #242b37;color:#929bad;font-size:12px}
-    footer .wrap{padding:20px 0;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
-    @media(max-width:850px){.layout{grid-template-columns:1fr}.chatframe{min-height:360px}.chatframe iframe{min-height:360px}.info-grid{grid-template-columns:1fr}.orderbar{align-items:flex-start;flex-direction:column}.nav{display:none;position:absolute;top:76px;left:0;right:0;padding:12px 16px 16px;background:#080b10;border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch}.nav.open{display:flex}.nav a{padding:13px}.menu{display:block}}
-    @media(max-width:600px){.wrap{width:calc(100% - 22px)}.topline .wrap{gap:10px;font-size:10px}.topline .right{display:none}.headinner{min-height:66px}.brand{font-size:17px}.brandmark{width:36px;height:36px}.nav{top:66px}.hero{padding-top:25px}.card{border-radius:13px}.cardhead{padding:12px}.playerfoot{align-items:flex-start;flex-direction:column}.chatframe{display:none}.chat-mobile{display:block}.actions .btn{flex:1}.info-grid{margin:20px 0 26px}}
+    body{margin:0;background:#090b10;color:#f7f8fb;font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+    main{width:min(900px,calc(100% - 28px));margin:0 auto;padding:24px 0 40px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:24px}
+    .brand{font-weight:900;letter-spacing:.2px}.brand span{color:#ff2547}
+    .live{background:#ff2547;color:white;border-radius:999px;padding:5px 10px;font-size:12px;font-weight:800}
+    h1{font-size:clamp(26px,5vw,42px);line-height:1.1;margin:16px 0 8px}
+    p{color:#aeb6c5;margin:0 0 20px}
+    .player{aspect-ratio:16/9;background:#151923;border:1px solid #303747;border-radius:14px;overflow:hidden}
+    iframe{width:100%;height:100%;border:0}
+    .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+    a.btn{display:inline-flex;align-items:center;justify-content:center;padding:11px 16px;border-radius:9px;text-decoration:none;font-weight:800;background:#ff2547;color:#fff}
+    a.secondary{background:#171d28;border:1px solid #343c4b}
+    footer{border-top:1px solid #252b37;margin-top:28px;padding-top:16px;color:#8f99aa;font-size:12px}
   </style>
 </head>
 <body>
-  <div class="topline"><div class="wrap"><a href="https://wa.me/601126238907">☎ +60 11-2623 8907</a><a href="mailto:inquiry@itworldjersey.store">✉ inquiry@itworldjersey.store</a><span class="right">🇲🇾 Malaysia (RM)</span></div></div>
-  <header class="head"><div class="wrap headinner">
-    <a class="brand" href="/" aria-label="IT WORLD JERSEY Home"><span class="brandmark">⚽</span><span>IT WORLD <b>JERSEY</b><small>PREMIUM FOOTBALL JERSEYS</small></span></a>
-    <button class="menu" id="menuToggle" aria-expanded="false" aria-controls="mainNav">☰ Menu</button>
-    <nav class="nav" id="mainNav">
-      <a href="/">⌂ Home</a><a class="live-link active" href="/live/">🔴 Live Sale</a><a href="/shop/">🛍 Shop Jerseys</a><a href="/custom-design.html">✍ Custom Design</a>
-    </nav>
-  </div></header>
-  <main class="wrap">
-    <section class="hero">
-      <span class="eyebrow"><span class="dot"></span> IT WORLD JERSEY • LIVE SALE</span>
-      <h1>THE JERSEY SHOW<br><span>STARTS HERE.</span></h1>
-      <p class="intro">Watch live jersey showcases, discover new designs and find your next match-day look. See something you like? Browse the catalog or chat with us to order.</p>
-      <div class="layout">
-        <section class="card" aria-label="Live video player">
-          <div class="cardhead"><span class="cardtitle">📺 Live Stream</span><span class="livebadge"><span class="dot"></span><span id="liveState">STREAM PLAYER</span></span></div>
-          <div class="player" id="playerArea">
-            <div class="offline" id="offlineState"><div class="playicon">▶</div><strong>Live show is getting ready</strong><p>Our next jersey showcase will appear here. You can also open our YouTube channel.</p></div>
-          </div>
-          <div class="playerfoot"><span>IT WORLD JERSEY • Wear Your Passion</span><span>For best playback, use the player controls.</span></div>
-        </section>
-        <section class="card" aria-label="YouTube live chat">
-          <div class="cardhead"><span class="cardtitle">💬 Live Chat</span><span style="color:#a8b0bf;font-size:11px">YouTube chat</span></div>
-          <div class="chatframe" id="chatArea"><div class="offline"><div class="playicon">💬</div><strong>Chat opens during a live stream</strong><p>When a stream is scheduled, chat will appear here.</p></div></div>
-          <div class="chat-mobile"><div class="playicon">💬</div><strong>Chat on YouTube</strong><p>YouTube's embedded live chat is not supported on mobile web. Open the stream on YouTube to join the conversation.</p><a class="btn secondary" id="mobileChatLink" href="https://www.youtube.com/@hmuhtetpaing" target="_blank" rel="noopener">Open YouTube ↗</a></div>
-        </section>
-      </div>
-      <div class="actions">
-        <a class="btn" id="watchYoutube" href="https://www.youtube.com/@hmuhtetpaing" target="_blank" rel="noopener">▶ Watch on YouTube</a>
-        <a class="btn secondary" href="/shop/">🛍 Browse Jerseys</a>
-        <a class="btn secondary" href="https://wa.me/601126238907?text=Hi%20IT%20WORLD%20JERSEY%2C%20I%20want%20to%20order%20a%20jersey." target="_blank" rel="noopener">✉ Chat to Order</a>
-      </div>
-    </section>
-    <section class="info-grid" aria-label="Live sale information">
-      <article class="info"><span class="icon">⚡</span><strong>New Designs</strong><p>See jersey designs and featured picks during our live showcases.</p></article>
-      <article class="info"><span class="icon">💬</span><strong>Easy Ordering</strong><p>Message us with the design number you want to ask about.</p></article>
-      <article class="info"><span class="icon">🇲🇾</span><strong>Malaysia Store</strong><p>Prices and availability are confirmed when you contact our team.</p></article>
-    </section>
-    <section class="orderbar"><div><h2 class="section-title">Found your next jersey?</h2><p>Browse the catalog and message us the design number to order.</p></div><a class="btn" href="/shop/">Explore Jersey Catalog →</a></section>
+  <main>
+    <header>
+      <a class="brand" href="/" style="color:inherit;text-decoration:none">IT WORLD <span>JERSEY</span></a>
+      <span class="live">● LIVE STREAM</span>
+    </header>
+    <h1>Watch Our Live Stream</h1>
+    <p>Watch IT WORLD JERSEY live here. If the stream is not live yet, come back when the broadcast starts.</p>
+    <div class="player">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/FRqJ9GkkbNE?playsinline=1&rel=0"
+        title="IT WORLD JERSEY YouTube Live"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
+    </div>
+    <div class="actions">
+      <a class="btn" href="https://www.youtube.com/live/FRqJ9GkkbNE" target="_blank" rel="noopener">Watch on YouTube ↗</a>
+      <a class="btn secondary" href="/shop/">Browse Jerseys</a>
+    </div>
+    <footer>© <span id="year"></span> IT WORLD JERSEY</footer>
   </main>
-  <footer><div class="wrap"><span>© <span id="year"></span> IT WORLD JERSEY. All rights reserved.</span><span><a href="/">Home</a> · <a href="/shop/">Shop</a> · <a href="/terms.html">Terms</a> · <a href="/refund-policy.html">Refund Policy</a></span></div></footer>
-  <script>
-    /*
-      SETUP BEFORE LAUNCH:
-      1. This draft uses video ID 0SwvHE0oOsg from the supplied YouTube Studio control-room URL.
-      2. Keep embed_domain as itworldjersey.store for this non-www domain.
-      3. If the website uses www.itworldjersey.store instead, update embed_domain to www.itworldjersey.store.
-      4. Never paste your YouTube stream key into this file.
-    */
-    (function () {
-      "use strict";
-      const VIDEO_ID = "0SwvHE0oOsg";
-      const HOSTNAME = "itworldjersey.store";
-      const CHANNEL_URL = "https://www.youtube.com/@hmuhtetpaing";
-      const playerArea = document.getElementById("playerArea");
-      const chatArea = document.getElementById("chatArea");
-      const liveState = document.getElementById("liveState");
-      const watchYoutube = document.getElementById("watchYoutube");
-      const mobileChatLink = document.getElementById("mobileChatLink");
-      document.getElementById("year").textContent = new Date().getFullYear();
-      watchYoutube.href = CHANNEL_URL;
-      mobileChatLink.href = CHANNEL_URL;
-      const menuToggle = document.getElementById("menuToggle");
-      const mainNav = document.getElementById("mainNav");
-      menuToggle.addEventListener("click", function () {
-        const isOpen = mainNav.classList.toggle("open");
-        menuToggle.setAttribute("aria-expanded", String(isOpen));
-      });
-      const hasVideo = VIDEO_ID && VIDEO_ID !== "REPLACE_WITH_YOUTUBE_VIDEO_ID";
-      if (hasVideo) {
-        const player = document.createElement("iframe");
-        player.title = "IT WORLD JERSEY YouTube Live";
-        player.src = "https://www.youtube-nocookie.com/embed/" + encodeURIComponent(VIDEO_ID) + "?playsinline=1&rel=0";
-        player.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
-        player.allowFullscreen = true;
-        playerArea.replaceChildren(player);
-        liveState.textContent = "VIDEO READY";
-        const chat = document.createElement("iframe");
-        chat.title = "YouTube Live Chat";
-        chat.loading = "lazy";
-        chat.src = "https://www.youtube.com/live_chat?v=" + encodeURIComponent(VIDEO_ID) + "&embed_domain=" + encodeURIComponent(HOSTNAME);
-        chatArea.replaceChildren(chat);
-        watchYoutube.href = "https://www.youtube.com/watch?v=" + encodeURIComponent(VIDEO_ID);
-        mobileChatLink.href = watchYoutube.href;
-      }
-    })();
-  </script>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 </body>
 </html>
