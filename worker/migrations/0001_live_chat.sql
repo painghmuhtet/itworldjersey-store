@@ -4,6 +4,9 @@ CREATE TABLE IF NOT EXISTS live_chat_sessions (
   token TEXT PRIMARY KEY,
   name TEXT NOT NULL CHECK(length(name) BETWEEN 2 AND 50),
   phone TEXT NOT NULL,
+  is_banned INTEGER NOT NULL DEFAULT 0,
+  ban_reason TEXT,
+  banned_at TEXT,
   ip_hash TEXT NOT NULL,
   created_at TEXT NOT NULL DEFAULT (datetime('now'))
 );
