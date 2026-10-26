@@ -100,6 +100,68 @@ export default {
       }
     }
 
+
+    // Public Live Sale chat. Requires a Cloudflare D1 binding named LIVE_CHAT_DB.
+    if (url.pathname === "/api/live-chat/join") {
+      if (request.method !== "POST") return response({ error: "Method not allowed" }, 405, origin);
+      if (origin && !ALLOWED_ORIGINS.has(origin)) return response({ error: "Origin not allowed" }, 403);
+      if (!env.LIVE_CHAT_DB) return response({ error: "Live chat database is not configured yet. Please try again later." }, 503, origin);
+      let body; try { body = await request.json(); } catch { return response({ error: "Please enter your details." }, 400, origin); }
+      const name = safeText(body.name, 50);
+      const phone = safeText(body.phone, 24);
+      const digits = phone.replace(/\\D/g, "");
+      if (name.length < 2) return response({ error: "Please enter a name with at least 2 characters." }, 400, origin);
+      if (digits.length < 7 || digits.length > 15) return response({ error: "Please enter a valid phone number, including country code." }, 400, origin);
+      if (body.consent !== true) return response({ error: "Please agree to the chat privacy notice." }, 400, origin);
+      const ip = request.headers.get("CF-Connecting-IP") || "unknown";
+      try {
+        const recent = await env.LIVE_CHAT_DB.prepare("SELECT COUNT(*) AS n FROM live_chat_sessions WHERE ip_hash = ? AND created_at > datetime('now','-10 minutes')").bind(ip).first();
+        if (Number(recent?.n || 0) >= 5) return response({ error: "Too many attempts. Please try again in a few minutes." }, 429, origin);
+        const token = crypto.randomUUID() + crypto.randomUUID().replace(/-/g, "");
+        await env.LIVE_CHAT_DB.prepare("INSERT INTO live_chat_sessions (token, name, phone, ip_hash, created_at) VALUES (?, ?, ?, ?, datetime('now'))").bind(token, name, phone, ip).run();
+        return response({ ok: true, token, name }, 201, origin);
+      } catch (error) {
+        console.error("Live chat join failed:", error?.message || String(error));
+        return response({ error: "Live chat is temporarily unavailable. Please try again later." }, 503, origin);
+      }
+    }
+
+    if (url.pathname === "/api/live-chat/messages") {
+      if (request.method === "OPTIONS") return corsPreflight(origin, "GET, POST, OPTIONS");
+      if (origin && !ALLOWED_ORIGINS.has(origin)) return response({ error: "Origin not allowed" }, 403);
+      if (!env.LIVE_CHAT_DB) return response({ error: "Live chat database is not configured yet. Please try again later." }, 503, origin);
+      if (request.method === "GET") {
+        const after = Math.max(0, Number(url.searchParams.get("after") || 0) || 0);
+        try {
+          const result = await env.LIVE_CHAT_DB.prepare("SELECT id, name, message, created_at FROM live_chat_messages WHERE id > ? ORDER BY id ASC LIMIT 100").bind(after).all();
+          return response({ ok: true, messages: result.results || [] }, 200, origin);
+        } catch (error) {
+          console.error("Live chat fetch failed:", error?.message || String(error));
+          return response({ error: "Could not load chat messages." }, 503, origin);
+        }
+      }
+      if (request.method === "POST") {
+        const auth = request.headers.get("Authorization") || "";
+        const token = auth.startsWith("Bearer ") ? auth.slice(7).trim() : "";
+        if (!token || token.length > 100) return response({ error: "Please join the chat first." }, 401, origin);
+        let body; try { body = await request.json(); } catch { return response({ error: "Please enter a message." }, 400, origin); }
+        const message = safeText(body.message, 500);
+        if (!message) return response({ error: "Please enter a message." }, 400, origin);
+        try {
+          const session = await env.LIVE_CHAT_DB.prepare("SELECT token, name FROM live_chat_sessions WHERE token = ?").bind(token).first();
+          if (!session) return response({ error: "Your chat session has expired. Please join again." }, 401, origin);
+          const recent = await env.LIVE_CHAT_DB.prepare("SELECT COUNT(*) AS n FROM live_chat_messages WHERE session_token = ? AND created_at > datetime('now','-1 minute')").bind(token).first();
+          if (Number(recent?.n || 0) >= 8) return response({ error: "Please slow down before sending another message." }, 429, origin);
+          const inserted = await env.LIVE_CHAT_DB.prepare("INSERT INTO live_chat_messages (session_token, name, message, created_at) VALUES (?, ?, ?, datetime('now'))").bind(token, session.name, message).run();
+          return response({ ok: true, id: Number(inserted.meta?.last_row_id || 0) }, 201, origin);
+        } catch (error) {
+          console.error("Live chat send failed:", error?.message || String(error));
+          return response({ error: "Message could not be sent. Please try again." }, 503, origin);
+        }
+      }
+      return response({ error: "Method not allowed" }, 405, origin);
+    }
+
     if (url.pathname === "/api/custom-design") {
       if (request.method !== "POST") return response({ error: "Method not allowed" }, 405, origin);
       if (!ALLOWED_ORIGINS.has(origin)) return response({ error: "Origin not allowed" }, 403);
