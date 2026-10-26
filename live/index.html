@@ -117,6 +117,23 @@ h1{font-size:clamp(44px,13vw,64px);letter-spacing:-2px}
 .actions .btn{min-width:0;flex:1;font-size:11px;padding:11px 8px}
 }
 @media(max-width:360px){.platform-grid{grid-template-columns:1fr}.platform-btn{padding:11px}.actions{flex-direction:column}.actions .btn{width:100%}}
+
+.live-picks{margin:24px 0 0;padding:20px;border:1px solid #302a35;border-radius:20px;background:linear-gradient(135deg,#141720,#0b0d13 72%,#1b0a11);box-shadow:0 18px 42px #0005}
+.picks-heading{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:16px}
+.picks-heading h2{margin:5px 0 3px;font-size:clamp(22px,4vw,30px);letter-spacing:-.8px}
+.picks-heading p{margin:0;color:#aeb7c7;font-size:12px}
+.all-designs{color:#ff7189;text-decoration:none;font-size:12px;font-weight:850;white-space:nowrap}
+.picks-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.pick-card{min-width:0;overflow:hidden;border:1px solid #303644;border-radius:13px;background:#11151e}
+.pick-image{display:block;aspect-ratio:1/1;background:#f4f4f4;overflow:hidden}
+.pick-image img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .25s}
+.pick-image:hover img{transform:scale(1.04)}
+.pick-info{display:flex;flex-direction:column;gap:6px;padding:11px}
+.pick-info strong{font-size:13px}
+.pick-info span{color:#ff9aaa;font-size:11px}
+.pick-order{display:flex;align-items:center;justify-content:center;margin-top:3px;padding:9px 6px;border-radius:8px;background:#078f4c;color:#fff;text-decoration:none;text-align:center;font-size:11px;font-weight:900}
+.pick-order:hover{background:#0aa85a}
+@media(max-width:600px){.live-picks{margin-top:17px;padding:13px 9px;border-radius:16px}.picks-heading{align-items:start;margin-bottom:12px}.picks-heading h2{font-size:21px}.picks-heading p{font-size:10px}.all-designs{font-size:10px;padding-top:6px}.picks-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.pick-card{border-radius:11px}.pick-info{padding:9px;gap:5px}.pick-info strong{font-size:12px}.pick-info span{font-size:10px}.pick-order{font-size:10px;padding:9px 4px}}
 </style>
 </head>
 <body>
@@ -150,6 +167,15 @@ h1{font-size:clamp(44px,13vw,64px);letter-spacing:-2px}
 <a class="platform-btn platform-tiktok" href="https://itworldjersey.store/live/" aria-label="Watch on TikTok"><span class="platform-icon">♪</span><span class="platform-copy"><strong>Watch on TikTok</strong><small>Link will be updated later</small></span><span class="platform-arrow">↗</span></a>
 <a class="platform-btn platform-telegram" href="https://itworldjersey.store/live/" aria-label="Watch on Telegram"><span class="platform-icon">➤</span><span class="platform-copy"><strong>Watch on Telegram</strong><small>Link will be updated later</small></span><span class="platform-arrow">↗</span></a>
 <a class="platform-btn platform-instagram" href="https://itworldjersey.store/live/" aria-label="Watch on Instagram"><span class="platform-icon">◎</span><span class="platform-copy"><strong>Watch on Instagram</strong><small>Instagram Live link coming soon</small></span><span class="platform-arrow">↗</span></a>
+</div>
+</section>
+<section class="live-picks" aria-label="Featured jersey designs">
+<div class="picks-heading"><div><span class="platform-kicker">FEATURED JERSEYS</span><h2>Live Sale Picks</h2><p>See a design you like? Tap to order on WhatsApp.</p></div><a href="/shop/" class="all-designs">View all jerseys ↗</a></div>
+<div class="picks-grid">
+<article class="pick-card"><a class="pick-image" href="/shop/"><img src="https://order.itworldjersey.store/No%23%200001%20to%200100/Product%200001.webp" alt="Design 0001 jersey" loading="lazy"></a><div class="pick-info"><strong>Design 0001</strong><span>Price on request</span><a class="pick-order" href="https://wa.me/601126238907?text=Hi%20IT%20WORLD%20JERSEY%2C%20I%27m%20interested%20in%20Design%200001.%20Please%20share%20price%20and%20availability." target="_blank" rel="noopener">☏ Chat to Order</a></div></article>
+<article class="pick-card"><a class="pick-image" href="/shop/"><img src="https://order.itworldjersey.store/No%23%200001%20to%200100/Product%200001A.webp" alt="Design 0001 A jersey" loading="lazy"></a><div class="pick-info"><strong>Design 0001 A</strong><span>Price on request</span><a class="pick-order" href="https://wa.me/601126238907?text=Hi%20IT%20WORLD%20JERSEY%2C%20I%27m%20interested%20in%20Design%200001%20A.%20Please%20share%20price%20and%20availability." target="_blank" rel="noopener">☏ Chat to Order</a></div></article>
+<article class="pick-card"><a class="pick-image" href="/shop/"><img src="https://order.itworldjersey.store/No%23%200001%20to%200100/Product%200001B.webp" alt="Design 0001 B jersey" loading="lazy"></a><div class="pick-info"><strong>Design 0001 B</strong><span>Price on request</span><a class="pick-order" href="https://wa.me/601126238907?text=Hi%20IT%20WORLD%20JERSEY%2C%20I%27m%20interested%20in%20Design%200001%20B.%20Please%20share%20price%20and%20availability." target="_blank" rel="noopener">☏ Chat to Order</a></div></article>
+<article class="pick-card"><a class="pick-image" href="/shop/"><img src="https://order.itworldjersey.store/No%23%200001%20to%200100/Product%200002.webp" alt="Design 0002 jersey" loading="lazy"></a><div class="pick-info"><strong>Design 0002</strong><span>Price on request</span><a class="pick-order" href="https://wa.me/601126238907?text=Hi%20IT%20WORLD%20JERSEY%2C%20I%27m%20interested%20in%20Design%200002.%20Please%20share%20price%20and%20availability." target="_blank" rel="noopener">☏ Chat to Order</a></div></article>
 </div>
 </section>
 <div class="actions"><a class="btn" href="/shop/">🛍 Browse Jerseys <span aria-hidden="true">→</span></a><a class="btn secondary" href="/custom-design.html">✍ Custom Jersey Design</a></div>
