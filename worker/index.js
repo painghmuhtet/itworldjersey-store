@@ -52,6 +52,11 @@ function response(data, status = 200, origin = "") {
   }
   return new Response(JSON.stringify(data), { status, headers });
 }
+async function hashText(value) {
+  const bytes = new TextEncoder().encode(String(value || "unknown"));
+  const digest = await crypto.subtle.digest("SHA-256", bytes);
+  return Array.from(new Uint8Array(digest), b => b.toString(16).padStart(2, "0")).join("");
+}
 function safeText(value, max) {
   return String(value || "").replace(/[\u0000-\u001f\u007f]/g, " ").trim().slice(0, max);
 }
@@ -109,16 +114,16 @@ export default {
       let body; try { body = await request.json(); } catch { return response({ error: "Please enter your details." }, 400, origin); }
       const name = safeText(body.name, 50);
       const phone = safeText(body.phone, 24);
-      const digits = phone.replace(/\\D/g, "");
+      const digits = phone.replace(/\D/g, "");
       if (name.length < 2) return response({ error: "Please enter a name with at least 2 characters." }, 400, origin);
       if (digits.length < 7 || digits.length > 15) return response({ error: "Please enter a valid phone number, including country code." }, 400, origin);
       if (body.consent !== true) return response({ error: "Please agree to the chat privacy notice." }, 400, origin);
-      const ip = request.headers.get("CF-Connecting-IP") || "unknown";
+      const ipHash = await hashText(request.headers.get("CF-Connecting-IP") || "unknown");
       try {
-        const recent = await env.LIVE_CHAT_DB.prepare("SELECT COUNT(*) AS n FROM live_chat_sessions WHERE ip_hash = ? AND created_at > datetime('now','-10 minutes')").bind(ip).first();
+        const recent = await env.LIVE_CHAT_DB.prepare("SELECT COUNT(*) AS n FROM live_chat_sessions WHERE ip_hash = ? AND created_at > datetime('now','-10 minutes')").bind(ipHash).first();
         if (Number(recent?.n || 0) >= 5) return response({ error: "Too many attempts. Please try again in a few minutes." }, 429, origin);
         const token = crypto.randomUUID() + crypto.randomUUID().replace(/-/g, "");
-        await env.LIVE_CHAT_DB.prepare("INSERT INTO live_chat_sessions (token, name, phone, ip_hash, created_at) VALUES (?, ?, ?, ?, datetime('now'))").bind(token, name, phone, ip).run();
+        await env.LIVE_CHAT_DB.prepare("INSERT INTO live_chat_sessions (token, name, phone, ip_hash, created_at) VALUES (?, ?, ?, ?, datetime('now'))").bind(token, name, phone, ipHash).run();
         return response({ ok: true, token, name }, 201, origin);
       } catch (error) {
         console.error("Live chat join failed:", error?.message || String(error));
