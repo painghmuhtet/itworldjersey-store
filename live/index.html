@@ -149,6 +149,44 @@ h1{font-size:clamp(44px,13vw,64px);letter-spacing:-2px}
 .latest-picks .pick-info span{color:#80e5ad}
 .latest-picks .pick-order{background:#078f4c}
 .latest-picks .pick-order:hover{background:#0aa85a}
+
+.live-chat{margin:20px 0;padding:0;overflow:hidden;border:1px solid #432331;border-radius:18px;background:linear-gradient(145deg,#121620,#090b10 78%,#190a11);box-shadow:0 16px 42px #0005}
+.chat-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:17px 18px;border-bottom:1px solid #ffffff12;background:#ffffff04}
+.chat-head>div{position:relative;padding-left:17px}
+.chat-live-dot{position:absolute;left:0;top:5px;width:9px;height:9px;border-radius:50%;background:#ff2348;box-shadow:0 0 0 4px #ff23481c}
+.chat-head strong{font-size:18px}
+.chat-head p{margin:4px 0 0;color:#aeb7c7;font-size:12px}
+.chat-online{display:flex;align-items:center;gap:6px;color:#aeb7c7;font-size:11px;white-space:nowrap}
+.chat-online i{width:7px;height:7px;border-radius:50%;background:#35d58a}
+.chat-join{max-width:520px;margin:0 auto;padding:22px}
+.chat-join h2{margin:0 0 6px;font-size:22px}
+.chat-join>p{margin:0 0 18px;color:#aeb7c7;font-size:13px}
+#chatJoinForm{display:grid;gap:8px}
+#chatJoinForm>label:not(.chat-consent){font-size:12px;font-weight:800;color:#d8dce5;margin-top:5px}
+#chatJoinForm input:not([type=checkbox]),.chat-compose input{width:100%;min-width:0;box-sizing:border-box;border:1px solid #343a48;border-radius:11px;background:#0a0d13;color:#fff;padding:13px 14px;font:inherit;outline:none}
+#chatJoinForm input:focus,.chat-compose input:focus{border-color:#ff4567;box-shadow:0 0 0 3px #ff23481c}
+.chat-consent{display:flex;align-items:flex-start;gap:9px;margin:8px 0;color:#aeb7c7;font-size:11px;line-height:1.5}
+.chat-consent input{margin-top:2px;accent-color:#ff2348}
+.chat-send{display:flex;align-items:center;justify-content:center;gap:10px;border:0;border-radius:11px;background:linear-gradient(100deg,#ff2348,#c90e31);color:white;padding:13px;font:inherit;font-weight:900;cursor:pointer}
+.chat-send:disabled,.chat-compose button:disabled{opacity:.6;cursor:wait}
+.chat-status{min-height:16px;margin:0;color:#ff9aaa;font-size:12px}
+.chat-room{padding:14px}
+.chat-messages{display:flex;flex-direction:column;gap:10px;max-height:360px;min-height:160px;overflow:auto;padding:3px 2px 12px;scroll-behavior:smooth}
+.chat-message{display:flex;align-items:flex-start;gap:10px}
+.chat-avatar{display:grid;place-items:center;flex:0 0 34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#ff2348,#6c315f);font-size:13px;font-weight:900;color:white}
+.chat-bubble{flex:1;min-width:0;padding:9px 11px;border:1px solid #ffffff0d;border-radius:4px 12px 12px 12px;background:#ffffff07}
+.chat-message-meta{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;margin-bottom:4px}
+.chat-message-meta strong{font-size:12px;color:#fff}
+.chat-message-meta time{font-size:10px;color:#7f8a9d}
+.chat-message-text{font-size:13px;line-height:1.5;color:#dce1ea;overflow-wrap:anywhere;white-space:pre-wrap}
+.chat-empty{margin:auto;color:#9ca7b8;text-align:center;font-size:13px}
+.chat-compose{display:flex;gap:8px;padding-top:10px;border-top:1px solid #ffffff12}
+.chat-compose input{padding:12px 13px}
+.chat-compose button{flex:0 0 44px;border:0;border-radius:12px;background:#ff2348;color:white;font-size:20px;font-weight:900;cursor:pointer}
+.chat-room-foot{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:9px 2px 0;color:#9ca7b8;font-size:10px}
+.chat-room-foot button{border:0;background:none;color:#ff8ca0;font-size:11px;cursor:pointer}
+.chat-privacy{margin:0;padding:0 17px 14px;color:#758093;font-size:10px;line-height:1.5}
+@media(max-width:600px){.live-chat{margin:16px 0;border-radius:15px}.chat-head{padding:14px}.chat-head strong{font-size:16px}.chat-join{padding:16px 13px}.chat-join h2{font-size:20px}.chat-messages{max-height:300px;min-height:130px}.chat-room{padding:11px}.chat-message-text{font-size:12px}}
 </style>
 </head>
 <body>
@@ -172,6 +210,26 @@ h1{font-size:clamp(44px,13vw,64px);letter-spacing:-2px}
 <iframe src="https://www.youtube-nocookie.com/embed/FRqJ9GkkbNE?playsinline=1&rel=0" title="IT WORLD JERSEY Live Sale on YouTube" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>
 <div class="frame-foot"><span class="live-status">🔴 LIVE SALE PLAYER</span><span>For best experience, use full screen</span></div>
+</section>
+<section class="live-chat" aria-label="IT WORLD JERSEY live chat">
+  <div class="chat-head"><div><span class="chat-live-dot"></span><strong>Live Chat</strong><p>Chat with other jersey fans</p></div><span class="chat-online"><i></i> Live Sale Chat</span></div>
+  <div id="chatJoin" class="chat-join">
+    <h2>Join the Live Chat</h2>
+    <p>Enter your name and phone number to send messages.</p>
+    <form id="chatJoinForm">
+      <label for="chatName">Your name</label><input id="chatName" name="name" maxlength="50" autocomplete="name" placeholder="Enter your name" required>
+      <label for="chatPhone">Phone number</label><input id="chatPhone" name="phone" type="tel" maxlength="24" autocomplete="tel" placeholder="e.g. +60 11 2345 6789" required>
+      <label class="chat-consent"><input id="chatConsent" type="checkbox" required><span>I agree that my name and phone number are used to provide this chat. My phone number will not be shown publicly.</span></label>
+      <button class="chat-send" type="submit">Join Chat <span>→</span></button>
+      <p id="chatJoinStatus" class="chat-status" role="status"></p>
+    </form>
+  </div>
+  <div id="chatRoom" class="chat-room" hidden>
+    <div id="chatMessages" class="chat-messages" aria-live="polite"><p class="chat-empty">Loading messages…</p></div>
+    <form id="chatMessageForm" class="chat-compose"><input id="chatMessage" name="message" maxlength="500" placeholder="Type a message…" autocomplete="off" required><button type="submit" aria-label="Send message">➤</button></form>
+    <div class="chat-room-foot"><span id="chatMessageStatus" role="status">Be kind. Keep it about jerseys.</span><button type="button" id="chatLeave">Leave chat</button></div>
+  </div>
+  <p class="chat-privacy">Please don't post passwords, payment details, or private information. Chat messages may be visible to everyone on this page.</p>
 </section>
 <section class="platform-section" aria-label="Watch IT WORLD JERSEY on streaming platforms">
 <div class="platform-heading"><span class="platform-kicker">WATCH YOUR WAY</span><strong class="platform-title">Choose Your Live Platform</strong><span class="platform-subtitle">One brand. Your favourite way to watch.</span></div>
@@ -208,6 +266,67 @@ h1{font-size:clamp(44px,13vw,64px);letter-spacing:-2px}
 </main>
 <footer>© <span id="year"></span> IT WORLD JERSEY · Wear Your Passion</footer>
 </div>
-<script>document.getElementById("year").textContent=new Date().getFullYear();</script>
+
+<script>
+document.getElementById("year").textContent=new Date().getFullYear();
+(() => {
+  const API = "https://ai.itworldjersey.store/api/live-chat";
+  const joinBox = document.getElementById("chatJoin");
+  const room = document.getElementById("chatRoom");
+  const joinForm = document.getElementById("chatJoinForm");
+  const messageForm = document.getElementById("chatMessageForm");
+  const messageList = document.getElementById("chatMessages");
+  const joinStatus = document.getElementById("chatJoinStatus");
+  const messageStatus = document.getElementById("chatMessageStatus");
+  let token = "";
+  let lastId = 0;
+  let pollHandle = null;
+  let sending = false;
+  const timeLabel = value => { try { return new Date(value).toLocaleTimeString([], {hour:"numeric",minute:"2-digit"}); } catch { return ""; } };
+  function showStatus(el, message, bad=true) { el.textContent=message; el.style.color=bad?"#ff9aaa":"#79e6ad"; }
+  function renderMessage(m) {
+    if (!m || !Number.isFinite(Number(m.id)) || Number(m.id)<=lastId) return;
+    const empty=messageList.querySelector(".chat-empty"); if(empty) empty.remove();
+    const row=document.createElement("div"); row.className="chat-message";
+    const avatar=document.createElement("div"); avatar.className="chat-avatar"; avatar.textContent=(m.name||"G").trim().slice(0,1).toUpperCase();
+    const bubble=document.createElement("div"); bubble.className="chat-bubble";
+    const meta=document.createElement("div"); meta.className="chat-message-meta";
+    const name=document.createElement("strong"); name.textContent=String(m.name||"Guest").slice(0,50);
+    const time=document.createElement("time"); time.textContent=timeLabel(m.created_at);
+    const body=document.createElement("div"); body.className="chat-message-text"; body.textContent=String(m.message||"").slice(0,500);
+    meta.append(name,time); bubble.append(meta,body); row.append(avatar,bubble); messageList.append(row);
+    lastId=Math.max(lastId,Number(m.id)); messageList.scrollTop=messageList.scrollHeight;
+  }
+  async function loadMessages() {
+    try {
+      const r=await fetch(API+"/messages?after="+lastId,{headers:{"Accept":"application/json"}});
+      if(!r.ok) throw new Error(r.status===503?"Chat database is not configured yet.":"Could not load chat messages.");
+      const data=await r.json(); (data.messages||[]).forEach(renderMessage);
+      if(!messageList.children.length) messageList.innerHTML='<p class="chat-empty">No messages yet. Say hello! 👋</p>';
+    } catch(e) { if(!token) return; showStatus(messageStatus,e.message||"Chat is temporarily unavailable."); }
+  }
+  joinForm.addEventListener("submit",async e=>{
+    e.preventDefault(); const button=joinForm.querySelector("button[type=submit]"); button.disabled=true; showStatus(joinStatus,"Joining chat…",false);
+    try {
+      const r=await fetch(API+"/join",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({name:document.getElementById("chatName").value,phone:document.getElementById("chatPhone").value,consent:document.getElementById("chatConsent").checked})});
+      const data=await r.json(); if(!r.ok) throw new Error(data.error||"Unable to join chat.");
+      token=data.token; joinBox.hidden=true; room.hidden=false; messageStatus.textContent="You joined as "+data.name+". Be kind and keep it about jerseys.";
+      await loadMessages(); pollHandle=setInterval(loadMessages,5000); document.getElementById("chatMessage").focus();
+    } catch(e) { showStatus(joinStatus,e.message||"Chat is temporarily unavailable."); }
+    finally {button.disabled=false;}
+  });
+  messageForm.addEventListener("submit",async e=>{
+    e.preventDefault(); if(!token||sending) return; const input=document.getElementById("chatMessage"); const message=input.value.trim(); if(!message)return;
+    sending=true; const button=messageForm.querySelector("button"); button.disabled=true;
+    try {
+      const r=await fetch(API+"/messages",{method:"POST",headers:{"Content-Type":"application/json","Authorization":"Bearer "+token},body:JSON.stringify({message})});
+      const data=await r.json(); if(!r.ok) throw new Error(data.error||"Message could not be sent.");
+      input.value=""; await loadMessages(); showStatus(messageStatus,"Message sent.",false);
+    } catch(e) {showStatus(messageStatus,e.message||"Message could not be sent.");}
+    finally {sending=false;button.disabled=false;}
+  });
+  document.getElementById("chatLeave").addEventListener("click",()=>{if(pollHandle)clearInterval(pollHandle);token="";lastId=0;messageList.innerHTML='<p class="chat-empty">You left the chat.</p>';room.hidden=true;joinBox.hidden=false;showStatus(joinStatus,"You left the chat.",false);});
+})();
+</script>
 </body>
 </html>
