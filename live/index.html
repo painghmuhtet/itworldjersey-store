@@ -7,35 +7,45 @@
 <meta name="description" content="Watch IT WORLD JERSEY Live Sale on YouTube.">
 <title>IT WORLD JERSEY — LIVE SALE</title>
 <style>
-:root{color-scheme:dark;--bg:#080a0f;--panel:#11151e;--line:#292f3b;--red:#ff2348;--muted:#aab2c1}
+:root{color-scheme:dark;--bg:#08090e;--panel:#11141d;--line:#303644;--red:#ff2348;--red2:#c9002d;--muted:#aab2c1}
 *{box-sizing:border-box}
-body{margin:0;background:radial-gradient(ellipse at 50% -10%,#34101b 0,transparent 45%),var(--bg);color:#f8f9fc;font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
-.wrap{width:min(1040px,calc(100% - 28px));margin:auto}
-header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:20px 0}
-.brand{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font-weight:950;letter-spacing:.3px}
-.mark{display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,#ff3455,#bd082b);box-shadow:0 6px 24px #ff23482e}
+html{background:var(--bg);scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(ellipse at 50% 0%,#48101f 0,transparent 37%),radial-gradient(ellipse at 50% 100%,#210b13 0,transparent 34%),var(--bg);color:#f8f9fc;font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;min-height:100vh}
+.wrap{width:min(1160px,calc(100% - 36px));margin:0 auto}
+header{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:20px 0 18px;border-bottom:1px solid #ffffff0c}
+.brand{display:flex;align-items:center;gap:11px;color:#fff;text-decoration:none;font-weight:950;letter-spacing:.45px;font-size:clamp(14px,2vw,18px)}
+.mark{display:grid;place-items:center;width:46px;height:46px;border-radius:14px;background:linear-gradient(145deg,#ff4966,#c5002b);box-shadow:0 7px 28px #ff23483d;border:1px solid #ff8295;font-size:22px}
 .brand em{font-style:normal;color:var(--red)}
-.live-pill{display:flex;align-items:center;gap:7px;border:1px solid #ff23485c;background:#ff234817;border-radius:99px;padding:7px 11px;font-size:11px;font-weight:900;letter-spacing:1px}
-.pulse{width:7px;height:7px;background:var(--red);border-radius:50%;box-shadow:0 0 0 4px #ff23481e}
-.intro{text-align:center;padding:22px 0 24px}
-.kicker{color:#ff8295;text-transform:uppercase;letter-spacing:2.2px;font-size:11px;font-weight:900}
-h1{font-size:clamp(30px,6vw,54px);letter-spacing:-1.8px;line-height:1.05;margin:10px 0}
+.live-pill{display:flex;align-items:center;gap:9px;border:1px solid #ff234875;background:linear-gradient(135deg,#ff234825,#ff23480a);border-radius:99px;padding:9px 14px;font-size:11px;font-weight:950;letter-spacing:1.35px;white-space:nowrap}
+.pulse{position:relative;width:9px;height:9px;background:#ff2348;border-radius:50%;box-shadow:0 0 0 4px #ff23481c}
+.pulse:after{content:"";position:absolute;inset:-4px;border:1px solid #ff2348;border-radius:50%;animation:pulse 1.7s infinite}
+@keyframes pulse{0%{transform:scale(.7);opacity:.9}100%{transform:scale(1.8);opacity:0}}
+.intro{text-align:center;padding:clamp(24px,5vw,48px) 0 28px}
+.kicker{display:inline-flex;align-items:center;gap:9px;color:#ff8a9d;text-transform:uppercase;letter-spacing:2.8px;font-size:12px;font-weight:950}
+.kicker:before,.kicker:after{content:"";display:block;width:23px;height:1px;background:#ff2348a6}
+h1{font-size:clamp(42px,8vw,78px);letter-spacing:-2.8px;line-height:.98;margin:14px 0 16px;font-weight:1000;text-shadow:0 5px 30px #ff23481a}
 h1 span{color:var(--red)}
-.intro p{color:var(--muted);max-width:570px;margin:12px auto 0}
-.frame{padding:8px;border:1px solid #39303b;border-radius:20px;background:linear-gradient(135deg,#25111a,#151923 55%,#31101b);box-shadow:0 20px 70px #0008,0 0 35px #ff23480c}
-.frame-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 10px 13px}
-.frame-title{font-weight:850;display:flex;align-items:center;gap:9px}
-.yt{display:inline-grid;place-items:center;width:31px;height:22px;border-radius:7px;background:#ff0033;color:white;font-size:13px}
-.frame-label{font-size:11px;color:#d7dbe4}
-.video{aspect-ratio:16/9;position:relative;overflow:hidden;border-radius:12px;background:#050609;border:1px solid #343846}
+.intro p{color:#b5bdca;max-width:610px;font-size:clamp(14px,2vw,17px);margin:0 auto}
+.frame{padding:10px;border:1px solid #49303a;border-radius:22px;background:linear-gradient(135deg,#32121d,#151923 48%,#3b101d);box-shadow:0 24px 75px #0009,0 0 44px #ff234812}
+.frame-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 10px 15px}
+.frame-title{font-size:16px;font-weight:900;display:flex;align-items:center;gap:10px}
+.yt{display:inline-grid;place-items:center;flex-shrink:0;width:34px;height:24px;border-radius:7px;background:#ff0033;color:white;font-size:14px;box-shadow:0 3px 12px #ff00333b}
+.frame-label{font-size:11px;color:#e1e4eb;letter-spacing:.65px;text-align:right}
+.video{aspect-ratio:16/9;position:relative;overflow:hidden;border-radius:14px;background:#050609;border:1px solid #3b3f4a}
 .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.frame-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;padding:12px 10px 5px;color:var(--muted);font-size:12px}
-.actions{display:flex;justify-content:center;gap:11px;flex-wrap:wrap;margin:22px 0 0}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:46px;padding:12px 18px;border-radius:10px;background:linear-gradient(135deg,#ff3152,#ce0b2f);color:white;text-decoration:none;font-weight:850;box-shadow:0 8px 25px #ff234824}
-.btn.secondary{background:#141923;border:1px solid #353c4b;box-shadow:none}
-.note{text-align:center;color:#858fa0;font-size:12px;margin:17px auto 0}
-footer{margin-top:30px;border-top:1px solid #252a35;color:#7f899a;font-size:12px;text-align:center;padding:18px 0 24px}
-@media(max-width:520px){.wrap{width:calc(100% - 20px)}header{padding:14px 0}.brand{font-size:14px}.mark{width:35px;height:35px}.live-pill{font-size:9px;padding:6px 8px}.intro{padding:18px 0 20px}.frame{padding:5px;border-radius:15px}.frame-head{padding:7px 7px 10px}.frame-title{font-size:13px}.frame-label{font-size:10px}.video{border-radius:9px}.frame-foot{padding:10px 7px 5px}.actions{margin-top:17px}.btn{flex:1;padding:11px 12px;font-size:13px}}
+.frame-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;padding:13px 10px 4px;color:#b6bfcd;font-size:12px}
+.frame-foot .live-status{color:#ff7189;font-weight:850;letter-spacing:.2px}
+.actions{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin:24px 0 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:14px 23px;border-radius:12px;background:linear-gradient(135deg,#ff3155,#d50032);border:1px solid #ff627b;color:white;text-decoration:none;font-weight:950;font-size:15px;box-shadow:0 10px 30px #ff234838;transition:transform .18s,box-shadow .18s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 14px 34px #ff23484a}
+.btn.secondary{background:linear-gradient(135deg,#1c222e,#11151e);border:1px solid #444c5c;box-shadow:0 8px 24px #0004}
+.btn.secondary:hover{border-color:#ff4567}
+.note{text-align:center;color:#909aaa;font-size:12px;margin:15px auto 0}
+footer{margin-top:24px;border-top:1px solid #ffffff14;color:#8993a3;font-size:12px;text-align:center;padding:17px 0 22px}
+@media(min-width:900px){.intro{padding-top:34px;padding-bottom:30px}.frame{padding:12px}.video{max-height:calc(100vh - 310px)}}
+@media(max-width:600px){.wrap{width:calc(100% - 22px)}header{padding:13px 0 12px}.brand{font-size:13px;gap:8px;letter-spacing:.1px}.mark{width:37px;height:37px;border-radius:11px;font-size:18px}.live-pill{font-size:9px;letter-spacing:.7px;padding:7px 9px;gap:7px}.pulse{width:7px;height:7px}.intro{padding:25px 0 21px}.kicker{font-size:9px;letter-spacing:2px}h1{font-size:clamp(42px,12vw,62px);letter-spacing:-1.8px;margin:12px 0}.intro p{font-size:13px;line-height:1.55;max-width:340px}.frame{padding:6px;border-radius:16px}.frame-head{padding:6px 5px 10px}.frame-title{font-size:13px;gap:7px}.yt{width:29px;height:21px;font-size:12px}.frame-label{font-size:8px;letter-spacing:.25px}.video{border-radius:10px}.frame-foot{padding:10px 5px 4px;font-size:10px}.frame-foot span:last-child{font-size:9px}.actions{gap:9px;margin-top:17px}.btn{flex:1;min-width:0;min-height:48px;padding:11px 9px;font-size:12px;border-radius:10px;gap:7px}.btn .yt{width:24px;height:18px;font-size:10px}.note{font-size:10px;line-height:1.5;margin:12px auto 0;max-width:330px}footer{margin-top:20px;padding:14px 0 17px;font-size:10px}}
+@media(max-width:360px){.brand{font-size:11px}.mark{width:33px;height:33px}.live-pill{font-size:8px;padding:6px 7px}.frame-label{max-width:125px}.btn{font-size:11px;padding-inline:7px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
 </style>
 </head>
 <body>
@@ -58,7 +68,7 @@ footer{margin-top:30px;border-top:1px solid #252a35;color:#7f899a;font-size:12px
 <div class="video">
 <iframe src="https://www.youtube-nocookie.com/embed/FRqJ9GkkbNE?playsinline=1&rel=0" title="IT WORLD JERSEY Live Sale on YouTube" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>
-<div class="frame-foot"><span>🔴 Live Sale video</span><span>For best experience, use full screen</span></div>
+<div class="frame-foot"><span class="live-status">🔴 LIVE SALE PLAYER</span><span>For best experience, use full screen</span></div>
 </section>
 <div class="actions">
 <a class="btn" href="https://www.youtube.com/live/FRqJ9GkkbNE" target="_blank" rel="noopener"><span class="yt">▶</span> Watch on YouTube</a>
