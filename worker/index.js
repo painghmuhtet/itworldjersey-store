@@ -153,7 +153,8 @@ export default {
         const message = safeText(body.message, 500);
         if (!message) return response({ error: "Please enter a message." }, 400, origin);
         try {
-          const session = await env.LIVE_CHAT_DB.prepare("SELECT token, name FROM live_chat_sessions WHERE token = ?").bind(token).first();
+          const session = await env.LIVE_CHAT_DB.prepare("SELECT token, name, is_banned FROM live_chat_sessions WHERE token = ?").bind(token).first();
+          if (session?.is_banned) return response({ error: "Your account is banned from this chat." }, 403, origin);
           if (!session) return response({ error: "Your chat session has expired. Please join again." }, 401, origin);
           const recent = await env.LIVE_CHAT_DB.prepare("SELECT COUNT(*) AS n FROM live_chat_messages WHERE session_token = ? AND created_at > datetime('now','-1 minute')").bind(token).first();
           if (Number(recent?.n || 0) >= 8) return response({ error: "Please slow down before sending another message." }, 429, origin);
@@ -165,6 +166,41 @@ export default {
         }
       }
       return response({ error: "Method not allowed" }, 405, origin);
+    }
+
+
+    if (url.pathname.startsWith("/api/live-chat/admin/")) {
+      if (!["GET", "POST", "DELETE"].includes(request.method)) return response({ error: "Method not allowed" }, 405, origin);
+      if (origin && !ALLOWED_ORIGINS.has(origin)) return response({ error: "Origin not allowed" }, 403);
+      const supplied = (request.headers.get("Authorization") || "").replace(/^Bearer\\s+/i, "");
+      if (!env.CHAT_ADMIN_TOKEN || supplied.length < 24 || supplied !== env.CHAT_ADMIN_TOKEN) return response({ error: "Admin authentication required." }, 401, origin);
+      if (!env.LIVE_CHAT_DB) return response({ error: "Live chat database is not configured yet." }, 503, origin);
+      try {
+        if (url.pathname === "/api/live-chat/admin/overview" && request.method === "GET") {
+          const users = await env.LIVE_CHAT_DB.prepare("SELECT token, name, phone, created_at, is_banned, ban_reason, banned_at FROM live_chat_sessions ORDER BY created_at DESC LIMIT 200").all();
+          const messages = await env.LIVE_CHAT_DB.prepare("SELECT id, session_token, name, message, created_at FROM live_chat_messages ORDER BY id DESC LIMIT 200").all();
+          const counts = await env.LIVE_CHAT_DB.prepare("SELECT (SELECT COUNT(*) FROM live_chat_sessions) AS users, (SELECT COUNT(*) FROM live_chat_messages) AS messages, (SELECT COUNT(*) FROM live_chat_sessions WHERE is_banned = 1) AS banned").first();
+          return response({ ok: true, counts, users: users.results || [], messages: messages.results || [] }, 200, origin);
+        }
+        const parts = url.pathname.split("/");
+        const action = parts[4], id = parts[5];
+        if (action === "users" && id && request.method === "POST") {
+          let body; try { body = await request.json(); } catch { return response({ error: "Invalid request." }, 400, origin); }
+          const banned = body.banned === true, reason = safeText(body.reason, 200);
+          const result = await env.LIVE_CHAT_DB.prepare("UPDATE live_chat_sessions SET is_banned = ?, ban_reason = ?, banned_at = ? WHERE token = ?").bind(banned ? 1 : 0, banned ? (reason || "Community rules violation") : null, banned ? new Date().toISOString() : null, id).run();
+          if (!result.meta?.changes) return response({ error: "User not found." }, 404, origin);
+          return response({ ok: true, banned }, 200, origin);
+        }
+        if (action === "messages" && id && request.method === "DELETE") {
+          const result = await env.LIVE_CHAT_DB.prepare("DELETE FROM live_chat_messages WHERE id = ?").bind(Number(id)).run();
+          if (!result.meta?.changes) return response({ error: "Message not found." }, 404, origin);
+          return response({ ok: true }, 200, origin);
+        }
+        return response({ error: "Unknown admin action." }, 404, origin);
+      } catch (error) {
+        console.error("Live chat admin request failed:", error?.message || String(error));
+        return response({ error: "Moderation service unavailable. Check that the latest database migration has been applied." }, 503, origin);
+      }
     }
 
     if (url.pathname === "/api/custom-design") {
