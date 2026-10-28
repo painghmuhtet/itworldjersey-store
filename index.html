@@ -13,7 +13,7 @@
 <a class="brand" href="#home"><img class="brand-logo" src="assets/itworldkl-jersey-shop.jpg" alt="IT WORLD KL Jersey Shop logo"><span>IT WORLD <b>JERSEY</b><small>PREMIUM FOOTBALL JERSEYS</small></span></a>
 <div class="mobile-quick-links"><a href="#home" class="quick-icon quick-home" aria-label="Home" title="Home"><span aria-hidden="true">⌂</span><b>Home</b></a><a href="https://itworldjersey.store/live/" class="quick-icon quick-live" aria-label="Live Sale" title="Live Sale"><span aria-hidden="true">🛑</span><b>Live Sale</b></a></div><button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">☰</button>
 <nav id="mainNav" class="nav">
-<a class="nav-link nav-home active" href="#home"><span class="nav-ico" aria-hidden="true">⌂</span>Home</a><a class="nav-link live nav-live" href="https://itworldjersey.store/live/"><span class="nav-ico live-ico" aria-hidden="true">🛑</span>Live Sale <i>● LIVE</i></a><a class="nav-link nav-videos" href="#videos"><span class="nav-ico" aria-hidden="true">▶</span>Videos</a><a class="nav-link nav-shop" href="shop/"><span class="nav-ico" aria-hidden="true">🛍</span>Shop</a>
+<a class="nav-link nav-home active" href="#home"><span class="nav-ico" aria-hidden="true">⌂</span>Home</a><a class="nav-link live nav-live" href="https://itworldjersey.store/live/"><span class="nav-ico live-ico" aria-hidden="true">🛑</span>Live Sale <i>● LIVE</i></a><a class="nav-link nav-videos" href="https://it-world-community-feed.pages.dev/"><span class="nav-ico" aria-hidden="true">▶</span>Videos</a><a class="nav-link nav-shop" href="shop/"><span class="nav-ico" aria-hidden="true">🛍</span>Shop</a>
 <div class="dropdown"><button class="nav-link drop-trigger nav-custom" type="button"><span class="nav-ico" aria-hidden="true">✍</span>Custom Jersey Design⌄</button><div class="drop-menu"><a href="custom-design.html">Upload Your Own Design</a><a href="shop/">No# 0001–0100</a><a href="shop/">No# 0101–0200</a><a href="shop/">No# 0201–0300</a><a href="shop/">Browse all categories</a></div></div>
 </nav><label class="search"><span>⌕</span><input id="searchInput" placeholder="Search jerseys, teams, designs..."><button id="searchButton">Search</button></label>
 </div></header>
@@ -92,27 +92,6 @@
 </script>
 
 
-<style>
-  /* Keep the Videos target visible below the sticky header. */
-  #videos { scroll-margin-top: 90px; }
-</style>
-<script>
-  // Make the Videos link work reliably on mobile, including when the menu is open.
-  document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll('a[href="#videos"]').forEach(function (link) {
-      link.addEventListener("click", function (event) {
-        var target = document.getElementById("videos");
-        if (!target) return;
-        event.preventDefault();
-        var nav = document.getElementById("mainNav");
-        if (nav) nav.classList.remove("open");
-        if (window.location.hash !== "#videos") {
-          window.history.pushState(null, "", "#videos");
-        }
-        target.scrollIntoView({ behavior: "smooth", block: "start" });
-      });
-    });
-  });
-</script>
+
 
 </body></html>
