@@ -5,7 +5,7 @@
 <meta name="theme-color" content="#090b10">
 <meta name="description" content="IT WORLD JERSEY — premium football jerseys, custom designs and chat-to-order in Malaysia.">
 <title>IT WORLD JERSEY | Premium Football Jerseys</title>
-<link rel="stylesheet" href="styles.css?v=20261026-2"><script src="app.js?v=20261026-4" defer></script>
+<link rel="stylesheet" href="styles.css?v=20261029-1"><script src="app.js?v=20261029-1" defer></script>
 </head>
 <body>
 <div class="topbar"><div class="wrap top-inner"><a href="https://wa.me/601126238907">☎ +60 11-2623 8907</a><a href="mailto:inquiry@itworldjersey.store">✉ inquiry@itworldjersey.store</a><span>🇲🇾 Malaysia (RM)</span></div></div>
@@ -89,6 +89,30 @@
  form.addEventListener('submit',e=>{e.preventDefault();respond(input.value);input.value='';});
  box.querySelectorAll('[data-jw]').forEach(b=>b.addEventListener('click',()=>respond(b.getAttribute('data-jw'))));
 })();
+</script>
+
+
+<style>
+  /* Keep the Videos target visible below the sticky header. */
+  #videos { scroll-margin-top: 90px; }
+</style>
+<script>
+  // Make the Videos link work reliably on mobile, including when the menu is open.
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll('a[href="#videos"]').forEach(function (link) {
+      link.addEventListener("click", function (event) {
+        var target = document.getElementById("videos");
+        if (!target) return;
+        event.preventDefault();
+        var nav = document.getElementById("mainNav");
+        if (nav) nav.classList.remove("open");
+        if (window.location.hash !== "#videos") {
+          window.history.pushState(null, "", "#videos");
+        }
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+  });
 </script>
 
 </body></html>
