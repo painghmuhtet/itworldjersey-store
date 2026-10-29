@@ -16,7 +16,8 @@ Static-first website starter for a Malaysia-focused football jersey store.
 - App download and social links are placeholders until the owner supplies real links.
 - The custom-design form currently opens WhatsApp with text only. It does not upload the selected file or send email yet.
 - Do not deploy until Worker upload handling, email provider, and private customer-upload storage have been implemented and tested.
-- Canonical production domain: `https://itworldjersey.store/`. Videos: `https://videos.itworldjersey.store/`; Live Sale: `https://itworldjersey.store/live/`; media: `https://media.itworldjersey.store/`; product images: `https://order.itworldjersey.store/`. Do not use the retired `itworldlive.stream` domain for new links or configuration. Verify all routes before removing legacy DNS records.
+- Canonical production domain: `https://itworldjersey.store/`. Videos: `https://videos.itworldjersey.store/`; Live Sale: `https://itworldjersey.store/live/`; media: `https://media.itworldjersey.store/`; product images: `https://order.itworldjersey.store/`.
+- Keep all new links and configuration on the canonical store domain or its verified subdomains. Verify each route before removing any legacy DNS records.
 
 ## Local preview
 Open `index.html` in a browser. For best results use a local static server; the site itself requires no build step.
