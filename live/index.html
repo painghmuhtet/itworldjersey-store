@@ -328,5 +328,9 @@ document.getElementById("year").textContent=new Date().getFullYear();
   document.getElementById("chatLeave").addEventListener("click",()=>{if(pollHandle)clearInterval(pollHandle);token="";lastId=0;messageList.innerHTML='<p class="chat-empty">You left the chat.</p>';room.hidden=true;joinBox.hidden=false;showStatus(joinStatus,"You left the chat.",false);});
 })();
 </script>
+
+<script>
+(function(){document.querySelectorAll(".pick-card").forEach(function(card){var img=card.querySelector(".pick-image img"),name=card.querySelector(".pick-info strong"),link=card.querySelector(".pick-order");if(!img||!name||!link)return;var src=img.currentSrc||img.src;var match=decodeURIComponent(src).match(/Product\s*(\d{4}[A-Z]?)(?:\.webp)?/i);var id=match?match[1].toUpperCase():"";var productName=id?"Product "+id.replace(/^(\d{4})([A-Z])$/,"$1 $2"):name.textContent.trim();var message="Hello IT WORLD JERSEY! I would like to order this product.\n\nProduct Name: "+productName+"\nDesign: "+name.textContent.trim()+"\nProduct ID: "+(id||"Please confirm")+"\nImage: "+src+"\n\nPlease confirm price and availability. Thank you!";link.href="https://wa.me/601126238907?text="+encodeURIComponent(message);});})();
+</script>
 </body>
 </html>
