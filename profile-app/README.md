@@ -1,12 +1,12 @@
 # IT WORLD JERSEY Profile Portal
 
-Cloudflare Worker source for the Profile, Sign in, Register, and Inbox hostnames.
+Cloudflare Worker source for the Profile, Sign in, Register, and customer-support contact page.
 
 ## Deployment
 
 - Worker: `itworldjersey-profile`
 - D1 binding: `DB` → `itworldjersey-profile`
-- D1 tables: `users`, `sessions`, `auth_attempts`, `inbox_messages`
+- D1 tables used: `users`, `sessions`, `auth_attempts`
 - Domains: `profile.itworldjersey.store`, `signin.profile.itworldjersey.store`, `signup.profile.itworldjersey.store`, `messenger.profile.itworldjersey.store`
 - Health endpoint: `/api/health`
 
@@ -19,17 +19,15 @@ Cloudflare Worker source for the Profile, Sign in, Register, and Inbox hostnames
 - Basic per-IP registration/login throttling is stored in `auth_attempts`.
 - Profile display name can be edited after login.
 
-## Customer inbox
+## Customer support
 
-- Signed-in users can send messages and read their own message history at `messenger.profile.itworldjersey.store`.
-- API: `GET/POST /api/messages`.
-- Messages are stored per user in `inbox_messages`; message length is limited to 2,000 characters and send rate is limited.
-- A staff/admin reply dashboard and email notifications are not yet configured. Do not advertise two-way live support until those are implemented and protected with admin authentication.
+- The website does not run a separate customer inbox or admin reply dashboard.
+- The `messenger.profile.itworldjersey.store` route directs customers to WhatsApp: `https://wa.me/601126238907`.
+- The shop owner handles replies in WhatsApp and Meta Business Suite.
 
 ## Not yet implemented
 
 - Email verification and password reset/recovery.
 - Account deletion/deactivation UI.
-- Staff/admin inbox reply interface and notification delivery.
 
 Because email verification is disabled, a user can register an email address they do not own. Password recovery is not available, so users should use an email address they control and a unique password.
