@@ -1,22 +1,38 @@
 # IT WORLD JERSEY — Premium Product Catalog
 
-Static-first website starter for a Malaysia-focused football jersey store.
+Static-first website for the Malaysia-focused football jersey store.
+
+## Canonical domain
+
+- Primary website: https://itworldjersey.store/
+- Shop: https://itworldjersey.store/shop/
+- Live Sale: https://itworldjersey.store/live/
+- Videos: https://videos.itworldjersey.store/
+- Video media: https://media.itworldjersey.store/
+- Product images: https://order.itworldjersey.store/
+- Custom design page: https://itworldjersey.store/custom-design.html
+
+The retired `itworldlive.stream` domain must not be used for new links, application home URLs, documentation, or navigation. Internal app navigation accepts the primary domain and its subdomains.
 
 ## Files
-- `index.html` — homepage, menu, hero slider, categories, catalog, footer
-- `styles.css` — responsive styling, dark/red menu with hover glow
-- `app.js` — demo product cards, search, banner controls, WhatsApp order messages
-- `custom-design.html` / `custom.js` — custom design request form UI
-- `worker/index.js` — staged private upload API source (not deployed)
-- `worker/wrangler.toml` — configuration template (private bucket placeholder)
-- `worker/README.md` — secure upload and email integration plan
 
-## Important prototype notes
-- Product pictures and prices are placeholders. Replace them with verified R2 product image URLs and confirmed prices before launch.
-- App download and social links are placeholders until the owner supplies real links.
-- The custom-design form currently opens WhatsApp with text only. It does not upload the selected file or send email yet.
-- Do not deploy until Worker upload handling, email provider, and private customer-upload storage have been implemented and tested.
-- The intended main domain is `itworldjersey.store`. No DNS, SSL, existing repository, or R2 settings were changed while preparing this starter.
+- `index.html` — homepage, menu, hero slider, categories, catalog, footer
+- `styles.css` — responsive styling
+- `app.js` — product cards, search, banners, WhatsApp order messages
+- `custom-design.html` / `custom.js` — custom jersey studio and request UI
+- `worker/index.js` — staged private upload API source (not deployed)
+- `worker/wrangler.toml` — configuration template
+- `live/index.html` — Live Sale page
+
+## Launch checklist
+
+- Verify product images and prices against the actual catalog before launch.
+- Keep the customer-upload bucket private; do not expose private design files through public URLs.
+- The custom-design page currently previews a design locally and opens WhatsApp with text; it does not upload the selected file or send email yet.
+- Verify all product-image and video links on the canonical store domain.
+- Confirm privacy, terms, refund, cookie and contact information before public launch.
+- Do not create redirects or remove legacy DNS records until the canonical site and subdomain routes have been verified.
 
 ## Local preview
+
 Open `index.html` in a browser. For best results use a local static server; the site itself requires no build step.
