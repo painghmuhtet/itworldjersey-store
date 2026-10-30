@@ -226,4 +226,3 @@
 .image-viewer-hint{color:#d4dbe6;font-size:12px;text-align:center;max-width:420px}
 body.viewer-open{overflow:hidden}
 @media(max-width:760px){.product-image-actions button{width:36px;height:36px}.image-viewer{padding:8px}.image-viewer-panel{padding:44px 8px 12px}.image-viewer-full{max-height:65vh}.image-viewer-actions{gap:8px}.image-viewer-download{width:100%}}
-
