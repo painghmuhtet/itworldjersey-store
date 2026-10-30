@@ -39,6 +39,12 @@ Use the address that matches the purpose of the enquiry. Each address is a separ
 | Marketing / Media | marketing@itworldjersey.store | Marketing, media and partnership enquiries |
 | Developer / Technical | developer@itworldjersey.store | Software development, API integration, website development, system integration and technical enquiries |
 | Designer / Creative | designer@itworldjersey.store | Jersey artwork, logos, mockups and creative design enquiries |
+| Welcome / Hello | hello@itworldjersey.store | Welcome messages and general first-contact enquiries |
+| Information | info@itworldjersey.store | General company and store information enquiries |
+| Webmaster | webmaster@itworldjersey.store | Website ownership, website administration and web-related issues |
+| Finance | finance@itworldjersey.store | Finance operations, payment records and financial enquiries |
+| Media / Press | media@itworldjersey.store | Press, media requests, interviews and media partnerships |
+| Data Protection Officer | dpo@itworldjersey.store | Data-protection officer contact and formal privacy matters |
 
 ### Website contact routing
 - Main homepage (index.html): contact@itworldjersey.store
