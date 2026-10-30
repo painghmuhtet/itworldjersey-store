@@ -227,14 +227,3 @@
 body.viewer-open{overflow:hidden}
 @media(max-width:760px){.product-image-actions button{width:36px;height:36px}.image-viewer{padding:8px}.image-viewer-panel{padding:44px 8px 12px}.image-viewer-full{max-height:65vh}.image-viewer-actions{gap:8px}.image-viewer-download{width:100%}}
 
-
-/* IT WORLD JERSEY app identity thumbnails and web destination */
-.store-brand-icon{width:46px;height:46px;flex:0 0 46px;object-fit:cover;border-radius:10px;border:1px solid #d9b34c;box-shadow:0 0 10px #e3aa3c55}
-.store-brand-google{border-color:#e9b847;box-shadow:0 0 10px #e9b84755}
-.store-brand-apple{border-color:#54a9ff;box-shadow:0 0 10px #168cff77}
-.store-badge-web{border-color:#f22b50;background:linear-gradient(145deg,#240a12,#070608);text-decoration:none}
-.store-badge-web:hover{border-color:#ff5470;transform:translateY(-1px)}
-.web-icon{font-size:31px;color:#ff3156}
-.store-badge-web .store-copy strong em{font-style:normal;color:#ff3156}
-.store-brand-web{border-color:#ff3156;box-shadow:0 0 10px #ff315677}
-@media(max-width:600px){.store-brand-icon{width:42px;height:42px;flex-basis:42px}.store-badge{gap:9px;padding:8px 10px}}
