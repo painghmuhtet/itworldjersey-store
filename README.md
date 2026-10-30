@@ -37,7 +37,7 @@ Use the address that matches the purpose of the enquiry. Each address is a separ
 | Sales / Custom Orders | sales@itworldjersey.store | Sales enquiries, quotations and custom jersey orders |
 | Billing / Finance | billing@itworldjersey.store | Invoices, billing and finance enquiries |
 | Marketing / Media | marketing@itworldjersey.store | Marketing, media and partnership enquiries |
-| Developer | developer@itworldjersey.store | Software, website and API development enquiries |
+| Developer / Technical | developer@itworldjersey.store | Software development, API integration, website development, system integration and technical enquiries |
 | Designer / Creative | designer@itworldjersey.store | Jersey artwork, logos, mockups and creative design enquiries |
 
 ### Website contact routing
