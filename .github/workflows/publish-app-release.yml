@@ -1,0 +1,76 @@
+name: Publish IT WORLD JERSEY Android APK
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/publish-app-release.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: itworldjersey-app-v1.0.26-release
+  cancel-in-progress: false
+
+jobs:
+  publish-android-apk:
+    name: Publish verified V1.0.26 APK
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      APP_VERSION: "1.0.26"
+      RELEASE_TAG: "v1.0.26-preview"
+      APK_URL: "https://expo.dev/artifacts/eas/26r0xG1HCYeI0KICbPm7Bc525BE83ewzqlFlBb_iDFc.apk"
+      APK_SHA256: "96fe754033cebbe7272bb443e462d9c0ad418f776d642fb37926e37bd81a4c0b"
+      APK_SIZE: "70900648"
+      APK_FILE: "IT-WORLD-JERSEY-v1.0.26.apk"
+
+    steps:
+      - name: Download verified EAS APK
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 --silent --show-error \
+            "$APK_URL" --output "$APK_FILE"
+          test -s "$APK_FILE"
+          ACTUAL_SIZE="$(stat -c '%s' "$APK_FILE")"
+          if [ "$ACTUAL_SIZE" != "$APK_SIZE" ]; then
+            echo "::error::Unexpected APK size: $ACTUAL_SIZE"
+            exit 1
+          fi
+          printf '%s  %s\n' "$APK_SHA256" "$APK_FILE" | sha256sum --check -
+
+      - name: Publish public GitHub Release asset
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          NOTES="$(cat <<'EOF'
+          IT WORLD JERSEY Android preview release V1.0.26.
+
+          - App: IT WORLD JERSEY
+          - Android package: com.itworldjersey.app
+          - Build source: Expo EAS Build #29
+          - Distribution: Direct website APK preview (not a Play Store listing)
+          - APK SHA-256: 96fe754033cebbe7272bb443e462d9c0ad418f776d642fb37926e37bd81a4c0b
+
+          The APK package, non-debuggable status, and owner-approved signing certificate were verified in the source build workflow.
+          EOF
+          )"
+
+          if gh release view "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh release upload "$RELEASE_TAG" "$APK_FILE" \
+              --repo "$GITHUB_REPOSITORY" --clobber
+          else
+            gh release create "$RELEASE_TAG" "$APK_FILE" \
+              --repo "$GITHUB_REPOSITORY" \
+              --title "IT WORLD JERSEY V1.0.26 — Android Preview" \
+              --notes "$NOTES" \
+              --prerelease
+          fi
+
+          gh release view "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" \
+            --json url,tagName,isPrerelease,assets
