@@ -13,7 +13,8 @@ Static-first website starter for a Malaysia-focused football jersey store.
 
 ## Important prototype notes
 - Product pictures and prices are placeholders. Replace them with verified R2 product image URLs and confirmed prices before launch.
-- App download and social links are placeholders until the owner supplies real links.
+- App distribution policy: never publish placeholder or guessed store URLs. Google Play and Apple App Store badges remain non-clickable “Coming Soon” labels until the official listings are live. The Android direct-download link must point to a verified GitHub Release asset (APK) only after a release is published. F-Droid must remain “Coming Soon” until the app is accepted into a real F-Droid repository; do not imply that a GitHub repository is an F-Droid listing.
+- Android source repository: https://github.com/painghmuhtet/it-world-jersey-apk (private repository; not a public download link). Public source/release links should be published only after visibility and release assets are verified.
 - The custom-design form currently opens WhatsApp with text only. It does not upload the selected file or send email yet.
 - Do not deploy until Worker upload handling, email provider, and private customer-upload storage have been implemented and tested.
 - Canonical production domain: `https://itworldjersey.store/`. Videos: `https://videos.itworldjersey.store/`; Live Sale: `https://itworldjersey.store/live/`; media: `https://media.itworldjersey.store/`; product images: `https://order.itworldjersey.store/`.
