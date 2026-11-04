@@ -259,3 +259,14 @@ body.viewer-open{overflow:hidden}
   .app-links .store-badge .store-copy small{font-size:8px;letter-spacing:.4px}
   .app-links .store-badge .store-copy strong{font-size:14px}
 }
+
+
+/* GitHub and F-Droid app distribution badges */
+.store-badge-github{border-color:#737984;background:linear-gradient(145deg,#24262b,#050608)}
+.github-icon{font-size:0;position:relative}
+.github-icon:before{content:"";display:block;width:25px;height:25px;border-radius:50%;background:#fff;clip-path:polygon(50% 0,68% 7%,82% 6%,94% 17%,100% 35%,96% 55%,84% 68%,79% 84%,67% 91%,59% 100%,42% 100%,34% 90%,20% 87%,11% 76%,3% 61%,0 42%,6% 23%,20% 10%,35% 5%)}
+.store-badge-fdroid{border-color:#557fca;background:linear-gradient(145deg,#10294c,#07101d)}
+.fdroid-icon{color:#80cf24;text-shadow:0 0 8px #2f9de8;font-size:27px}
+.store-coming a{display:flex;align-items:center;gap:10px;padding:13px;border:1px solid #e8ebf0;border-radius:10px;background:#fafbfc;color:#303744}
+.store-coming a:hover{border-color:#9aa5b5;background:#f1f4f8}
+@media(max-width:520px){.store-coming{grid-template-columns:1fr}}
