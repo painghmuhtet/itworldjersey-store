@@ -15,7 +15,7 @@
 | `/company.html` | `company.html` | Present |
 | `/legal.html` | `legal.html` | Present |
 
-Source files exist in the repository. Direct live HTTP status and canonical slash/no-slash redirects have not been independently verified.
+Source files exist in the repository. Direct live HTTP checks were attempted, but this execution environment could not resolve itworldjersey.store; HTTP status and canonical slash/no-slash redirects therefore remain unverified.
 
 ## 2. Changes committed to `project-2.0/website-recovery`
 
@@ -39,8 +39,9 @@ Source files exist in the repository. Direct live HTTP status and canonical slas
 
 **Delivery caveat:** This confirms routing configuration and a verified destination address. It does not prove an actual message was accepted by the destination inbox. A human-sent test and receipt confirmation remain required.
 
-## 4. Source workbook constraints
+## 4. Source workbook and registration-record constraints
 
+- The supplied Business Registration Record confirms IT WORLD JERSEY trades under MAC STYLE COLLECTION, SSM 202303181279 (CT0124374-P), and states Sdn. Bhd. conversion/registration is pending.
 - Static HTML / CSS / JS and mobile-first responsive layout.
 - Product catalogue with click-to-WhatsApp ordering. No checkout/payment gateway, customer registration or unnecessary customer data collection.
 - Display currency: Malaysian Ringgit (RM).
@@ -61,4 +62,4 @@ Source files exist in the repository. Direct live HTTP status and canonical slas
 - **Application development: ON HOLD.** No app source, builds, releases or distribution changes.
 - **Production deployment: NOT DONE.** No DNS changes. No changes pushed to `main`.
 
-Website recovery and route-cleanup changes are committed to `project-2.0/website-recovery` and ready for review. Complete remaining browser-route and mailbox-receipt checks before merge or deploy.
+Website recovery and route-cleanup changes are committed to `project-2.0/website-recovery` and ready for review. Live URL checks could not capture HTTP responses because domain resolution was unavailable from this execution environment. Complete remaining browser-route and mailbox-receipt checks before merge or deploy.
