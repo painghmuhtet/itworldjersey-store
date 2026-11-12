@@ -58,3 +58,14 @@ Use the address that matches the purpose of the enquiry. Each address is a separ
 
 ## Local preview
 Open `index.html` in a browser. For best results use a local static server; the site itself requires no build step.
+
+
+## Project 2.0 — Website-only scope (2026-11-13)
+
+- Active scope: website recovery and route cleanup only.
+- Video development: on hold. Leave the separate video repository, Pages projects, DNS and Live Sale page untouched.
+- Application development: on hold; hide app-development entry points from the active store navigation/footer without changing app repositories or releases.
+- Production deployment: explicitly deferred. Keep all changes on `project-2.0/website-recovery` until owner review.
+- Business Directory workbook identifies `inquiry@itworldjersey.store` as the public contact and `itworldjersey@gmail.com` as operational destination.
+- Cloudflare Email Routing reports enabled/ready. Its verified destination is `itworldjersey@gmail.com`; the inquiry alias is configured to forward there. Routing configuration does not prove that the receiving mailbox has accepted a test message.
+- No DNS changes are part of this project.
