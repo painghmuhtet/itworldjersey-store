@@ -22,7 +22,7 @@ Cloudflare Worker source for the Profile, Sign in, Register, and customer-suppor
 ## Customer support
 
 - The website does not run a separate customer inbox or admin reply dashboard.
-- The `messenger.profile.itworldjersey.store` route directs customers to WhatsApp: `https://wa.me/601126238907`.
+- The `messenger.profile.itworldjersey.store` route is intended to direct customers to the verified sales contact. The repository currently has no verified public WhatsApp number; do not publish a hardcoded number until the owner confirms it.
 - The shop owner handles replies in WhatsApp and Meta Business Suite.
 
 ## Not yet implemented
